@@ -1,0 +1,7 @@
+{
+    
+     "MONGO_URI_SERVER": "mongodb+srv://Backend-Resultados:Elecciones-2022@cluster0.qgyvqw0.mongodb.net/?  retryWrites=true&w=majority" ,
+     "MONGO_URI_LOCAL": "mongodb://localhost", 
+     "LOCAL_PORT": 27017
+    
+}
