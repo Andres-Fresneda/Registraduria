@@ -1,10 +1,10 @@
 package ProjectCiclo4A.BK_seguridad.controladores;
 
-import ProjectCiclo4A.BK_seguridad.modelos.Permiso;
-import ProjectCiclo4A.BK_seguridad.repositorios.RepositorioPermiso;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import ProjectCiclo4A.BK_seguridad.modelos.Permiso;
+import ProjectCiclo4A.BK_seguridad.repositorios.RepositorioPermiso;
 
 import java.util.List;
 
@@ -28,18 +28,20 @@ public class ControladorPermiso {
 
     @GetMapping("{id}")
     public Permiso show(@PathVariable String id){
-        Permiso permisoActual = miRepositorioPermiso.findById(id)
+        Permiso permisoActual= miRepositorioPermiso.findById(id)
                 .orElse(null);
         return permisoActual;
     }
 
     @PutMapping("{id}")
-    public Permiso update(@PathVariable String id, @RequestBody Permiso infoPermiso){
-        Permiso permisoActual = miRepositorioPermiso.findById(id)
+    public Permiso update(@PathVariable String id,
+                          @RequestBody Permiso infoPermiso){
+
+        Permiso permisoActual= miRepositorioPermiso.findById(id)
                 .orElse(null);
-        if(permisoActual != null){
-            permisoActual.setMetodo(infoPermiso.getMetodo());
+        if(permisoActual!=null){
             permisoActual.setUrl(infoPermiso.getUrl());
+            permisoActual.setMetodo(infoPermiso.getMetodo());
             return miRepositorioPermiso.save(permisoActual);
         }else{
             return null;
@@ -49,11 +51,10 @@ public class ControladorPermiso {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("{id}")
     public void delete(@PathVariable String id){
-        Permiso permisoActual = miRepositorioPermiso.findById(id)
+        Permiso permisoActual= miRepositorioPermiso.findById(id)
                 .orElse(null);
         if(permisoActual!=null){
             miRepositorioPermiso.delete(permisoActual);
         }
     }
-
 }

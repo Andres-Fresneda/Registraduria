@@ -29,10 +29,7 @@ def test():
     json["message"] = "Server running ..."
     return jsonify(json)
 
-#EndPoints Partidos
-
-
-
+## EndPoints Partidos ##
 @app.route("/partidos", methods=["POST"])
 def crearPartido():
     data = request.get_json()
@@ -61,8 +58,7 @@ def eliminarPartido(id):
     return jsonify(json)
 
  
-#EndPoints Candidatos        
-
+##  EndPoints Candidatos  ##       
 @app.route("/candidatos", methods = ["GET"])
 def getCandidatos():
     json = miControladorCandidato.index()
@@ -96,7 +92,7 @@ def asignarPartidoCandidato(id_candidato, id_partido):
     return jsonify(json)
 
     
-#EndPoints Mesas      
+## EndPoints Mesas  ##     
 
 
 @app.route("/mesas", methods=["GET"])

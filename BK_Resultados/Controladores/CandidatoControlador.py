@@ -14,7 +14,6 @@ class CandidatoControlador():
     def create(self, infoCandidato):
         nuevoCandidato = Candidato(infoCandidato)
         return self.repositorioCandidato.save(nuevoCandidato)
-        
     def show(self, id):
         elCandidato = Candidato(self.repositorioCandidato.findById(id))
         return elCandidato.__dict__
